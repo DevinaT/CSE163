@@ -22,7 +22,7 @@ def main():
                             (tabacco_df['YEAR'] != '2014-2015') &
                             (tabacco_df['YEAR'] != '2015-2016')]
 
-    # obesity dataset cleaning
+    # obesity dataset cleaning lol
     is_state = ((obesity_df["Locationdesc"] != "Puerto Rico") &
                 (obesity_df["Locationdesc"] != "Virgin Islands") &
                 (obesity_df["Locationdesc"] != "District of Columbia") &
