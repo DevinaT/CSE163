@@ -30,8 +30,8 @@ is_state = ((obesity_df["Locationdesc"] != "Puerto Rico") &
             (obesity_df["Locationdesc"] != "District of Columbia") &
             (obesity_df["Locationdesc"] != "Guam"))
 obesity_df = obesity_df.loc[is_state, ["Year", "Locationabbr",
-                                                 "Response", "Break_Out",
-                                                 "Data_value"]]
+                                        "Response", "Break_Out",
+                                        "Data_value", "GeoLocation"]]
 
     # cardiovascular dataset cleaning
 cardiovascular_df = cardiovascular_df[(cardiovascular_df['LocationAbbr'] != 'DC') & (cardiovascular_df['LocationAbbr'] != 'USM')]
