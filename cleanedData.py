@@ -5,10 +5,6 @@ This file contains the functions needed to clean all three datasets
 """
 import pandas as pd
 
-# cardiovascular_df = pd.read_csv('https://raw.githubusercontent.com/DevinaT/CSE163/main/Cardiovascular.csv')
-# obesity_df = pd.read_csv('https://raw.githubusercontent.com/DevinaT/CSE163/main/Obesity.csv')
-# tabacco_df = pd.read_csv('https://raw.githubusercontent.com/DevinaT/CSE163/main/Tobacco.csv')
-
 
 def tabacco_clean(file: str) -> pd.DataFrame:
     '''

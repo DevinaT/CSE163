@@ -1,8 +1,6 @@
 import cleanedData as cd
 import pandas as pd
-# import plotly.express as px
 import plotly.graph_objects as go
-# from plotly.subplots import make_subplots
 
 
 def tabacco_filtered(tabacco: pd.DataFrame) -> pd.DataFrame:
@@ -10,7 +8,6 @@ def tabacco_filtered(tabacco: pd.DataFrame) -> pd.DataFrame:
     This function takes in the tabacco dataframe and returns a
     filtered data frame that has the columns of intrest.
     '''
-    # tabacco = cd.tabacco_df
     # Removing rows that have the following race
     tabacco = tabacco[(tabacco['Race'] != 'All Races') & (tabacco['Race'] !=
                                                           'American Indian/Alaska Native')]
