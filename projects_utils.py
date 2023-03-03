@@ -1,7 +1,9 @@
 """
 Niyat Efrem, Claire Lai, Devina Tavahia
 TA Mentor: Palo Pan
-This file contains the assert_equals function needed to write tests. 
+This file contains the check_approx_equals and assert_equals function needed
+to write tests. The code from this file comes from the CSE 163 utils file
+found on our assignments
 """
 from typing import Any
 import numpy as np

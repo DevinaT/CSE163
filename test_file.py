@@ -1,7 +1,6 @@
 import cleanedData as cd
 import pandas as pd
 from projects_utils import assert_equals
-import numpy as np
 
 # unfiltered_test_tabacco = ("https://raw.githubusercontent.com/DevinaT/CSE163/main/test_tabacco.csv")
 # filtered_test_tabacco = 

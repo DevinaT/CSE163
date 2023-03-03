@@ -11,7 +11,7 @@ def tabacco_clean(file: str) -> pd.DataFrame:
     This function takes in the tabacco dataset and returns a cleaned
     dataset with only the 50 states and the columns of interest.
     '''
-    tabacco_df = pd.read_csv(file)
+    tabacco_df = pd.read_csv(file, dtype={'YEAR': "string"})
     tabacco_df = tabacco_df[['YEAR', 'LocationAbbr', 'TopicDesc',
                              'MeasureDesc', 'Data_Value', 'Gender',
                              'Race', 'Age', 'Education']]
