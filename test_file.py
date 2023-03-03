@@ -7,6 +7,7 @@ import numpy as np
 # filtered_test_tabacco = 
 
 TEST_OBESITY_RESULT = pd.read_csv("https://raw.githubusercontent.com/DevinaT/CSE163/main/obesity_test_clean.csv")
+print(TEST_OBESITY_RESULT)
 
 
 # def test_tabacco_clean(test_file: str) -> None:
@@ -15,7 +16,7 @@ TEST_OBESITY_RESULT = pd.read_csv("https://raw.githubusercontent.com/DevinaT/CSE
 def test_obesity_clean(test_file: str, result_file: str) -> None:
     clean_obesity_test = cd.obesity_cleaned(test_file)
     assert_equals(len(result_file), len(clean_obesity_test))
-    assert_equals(result_file, clean_obesity_test)
+    assert_equals(TEST_OBESITY_RESULT, clean_obesity_test)
     print("test_obsity_clean passed")
 
 
