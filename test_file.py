@@ -6,7 +6,7 @@ import numpy as np
 # unfiltered_test_tabacco = ("https://raw.githubusercontent.com/DevinaT/CSE163/main/test_tabacco.csv")
 # filtered_test_tabacco = 
 
-TEST_OBESITY_RESULT = pd.read_csv("https://raw.githubusercontent.com/DevinaT/CSE163/main/obesity_test_clean.csv")
+TEST_OBESITY_RESULT = pd.read_csv('https://raw.githubusercontent.com/DevinaT/CSE163/main/obesity_test_result.csv')
 print(TEST_OBESITY_RESULT)
 
 
