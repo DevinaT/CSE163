@@ -2,10 +2,12 @@ import cleanedData as cd
 import pandas as pd
 from projects_utils import assert_equals
 
-# unfiltered_test_tabacco = ("https://raw.githubusercontent.com/DevinaT/CSE163/main/test_tabacco.csv")
+# unfiltered_test_tabacco = "https://raw.githubusercontent.com/DevinaT/CSE163/main/test_tabacco.csv"
 # filtered_test_tabacco = 
 
-TEST_OBESITY_RESULT = pd.read_csv('https://raw.githubusercontent.com/DevinaT/CSE163/main/obesity_test_clean.csv')
+# store string as constant and read content to get the data frame
+TEST_OBESITY_RESULT = pd.read_csv('https://raw.githubusercontent.com/DevinaT/'
+                                  'CSE163/main/obesity_test_clean.csv')
 
 
 # def test_tabacco_clean(test_file: str) -> None:
