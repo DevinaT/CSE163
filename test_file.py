@@ -11,6 +11,9 @@ test_tabacco_result = pd.read_csv('https://raw.githubusercontent.com/DevinaT/'
                                   'CSE163/main/TES_tabacco_filtered.csv')
 test_tabcacco_filtered_result = pd.read_csv('https://raw.githubusercontent.com/DevinaT/'
                                             'CSE163/main/TEST_T_FILTER_RESULT.csv')
+test_c_cleaned = pd.read_csv('https://raw.githubusercontent.com/DevinaT/'
+                             'CSE163/main/cardiovascular_test_cleaned.csv')
+
 
 def test_tabacco_clean(test_file: str, result_file: str) -> None:
     '''
@@ -52,6 +55,24 @@ def test_obesity_clean(test_file: str, result_file: str) -> None:
     print("test_obsity_clean passed")
 
 
+def test_cardiovascular_clean(result_file: str) -> None:
+    """
+    This function takes in a test data set and a cleaned verison of the
+    test dataset and sees if they are equal to each other after the
+    function cd.cardiovascular_cleaned is called on them. In order to test this,
+    the indexes of the cleaned test_file must be rest so the indexs are
+    the same. If not the files will not be equal even if the content
+    inside of them are equal.
+    """
+    clean_cardio = cd.cardiovascular_cleaned('https://raw.githubusercontent.com/DevinaT/CSE163/main/cardiovascular_test.csv')
+    # drop the indexes
+    clean_cardio = clean_cardio.reset_index(drop=True)
+
+    assert_equals(len(result_file), len(clean_cardio))
+    assert_equals(result_file, clean_cardio)
+    print("test_cardiovascular_clean passed!")
+
+
 def main():
 
     test_obesity_clean("https://raw.githubusercontent.com/DevinaT/CSE163/main/obesity_test.csv",
@@ -59,6 +80,8 @@ def main():
     test_tabacco_clean("https://raw.githubusercontent.com/DevinaT/CSE163/main/test_tabacco.csv",
                        test_tabacco_result)
     test_tabcacco_filtered(test_tabacco_result, test_tabcacco_filtered_result)
+    test_cardiovascular_clean(test_c_cleaned)
+
 
 if __name__ == "__main__":
     main()
