@@ -10,7 +10,7 @@ TEST_OBESITY_RESULT = pd.read_csv('https://raw.githubusercontent.com/DevinaT/'
 test_tabacco_result = pd.read_csv('https://raw.githubusercontent.com/DevinaT/'
                                   'CSE163/main/TES_tabacco_filtered.csv')
 test_tabcacco_filtered_result = pd.read_csv('https://raw.githubusercontent.com/DevinaT/'
-                                            'CSE163/main/test_t_filtered_result.csv')
+                                            'CSE163/main/TEST_T_FILTER_RESULT.csv')
 
 def test_tabacco_clean(test_file: str, result_file: str) -> None:
     '''
@@ -20,18 +20,19 @@ def test_tabacco_clean(test_file: str, result_file: str) -> None:
     filtered_test_df = cd.tabacco_clean(test_file)
     filtered_test_df = filtered_test_df.reset_index(drop=True)
     assert_equals(len(result_file), len(filtered_test_df))
-    # assert_equals(test_tabacco_result, filtered_test_df)
-    print("test_tabacco_clean passed")
+    print("test_tabacco_clean passed!")
+
 
 def test_tabcacco_filtered(test_file: str, result_file: str) -> None:
     '''
-    This function tests the tabacco_filtered method. 
+    This function tests the tabacco_filtered method.
     '''
     filtered_df = n.tabacco_filtered(test_file)
     filtered_df = filtered_df.reset_index(drop = True)
     assert_equals(filtered_df, test_tabcacco_filtered_result)
     assert_equals(len(result_file), len(filtered_df))
     print("test_tabacco_filtered passed!")
+
 
 def test_obesity_clean(test_file: str, result_file: str) -> None:
     """
@@ -52,7 +53,7 @@ def test_obesity_clean(test_file: str, result_file: str) -> None:
 
 
 def main():
-   
+
     test_obesity_clean("https://raw.githubusercontent.com/DevinaT/CSE163/main/obesity_test.csv",
                        TEST_OBESITY_RESULT)
     test_tabacco_clean("https://raw.githubusercontent.com/DevinaT/CSE163/main/test_tabacco.csv",
