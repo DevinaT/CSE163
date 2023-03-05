@@ -1,0 +1,5 @@
+YEAR,LocationAbbr,TopicDesc,MeasureDesc,Data_Value,Gender,Race,Age,Education
+2019,FL,Cigarette Use (Adults),Current Smoking,14.8,Overall,All Races,All Ages,All Grades
+2019,CO,Cigarette Use (Adults),Current Smoking,17,Overall,African American,All Ages,All Grades
+2019,OR,Cigarette Use (Adults),Current Smoking,14.6,Female,All Races,18 to 44 Years,All Grades
+2019,LA,Cigarette Use (Adults),Current Smoking,14.7,Overall,All Races,Age 20 and Older,> 12th Grade
