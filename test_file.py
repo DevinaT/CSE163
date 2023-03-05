@@ -2,6 +2,7 @@ import cleanedData as cd
 import pandas as pd
 from projects_utils import assert_equals
 import niyat_questions as n
+import devina_questions as d
 
 
 # store string as constant and read content to get the data frame
@@ -13,6 +14,8 @@ test_tabcacco_filtered_result = pd.read_csv('https://raw.githubusercontent.com/D
                                             'CSE163/main/TEST_T_FILTER_RESULT.csv')
 test_c_cleaned = pd.read_csv('https://raw.githubusercontent.com/DevinaT/'
                              'CSE163/main/cardiovascular_test_cleaned.csv')
+top_ten_list = [['OK', 'UT', 'FL', 'WY', 'IL', 'WI', 'ND', 'IA', 'ID', 'VT']]  # type for this??
+format_cardiovasc_method = pd.read_csv('https://raw.githubusercontent.com/DevinaT/CSE163/main/format_cardio_vasc.csv')
 
 
 def test_tabacco_clean(test_file: str, result_file: str) -> None:
@@ -73,6 +76,22 @@ def test_cardiovascular_clean(result_file: str) -> None:
     print("test_cardiovascular_clean passed!")
 
 
+def test_top_ten_list() -> None:
+    top_ten = d.find_top_ten(test_c_cleaned)
+    assert_equals(top_ten_list, top_ten)
+    print("top ten passed!")
+
+
+def test_format_cardiovasc(test_file: str) -> None:
+    assert_equals(format_cardiovasc_method, d.format_cardiovasc(test_file, top_ten_list))
+    print("format_cardiovasc passed!")
+
+
+# def test_format_obesity(test_file: str) -> None:
+    # assert_equals(test_file, d.format_c(test_file))
+    # print("format_obesity passed!")
+
+
 def main():
 
     test_obesity_clean("https://raw.githubusercontent.com/DevinaT/CSE163/main/obesity_test.csv",
@@ -81,6 +100,9 @@ def main():
                        test_tabacco_result)
     test_tabcacco_filtered(test_tabacco_result, test_tabcacco_filtered_result)
     test_cardiovascular_clean(test_c_cleaned)
+    test_top_ten_list()
+    test_format_cardiovasc(test_c_cleaned)
+    # test_format_obesity()
 
 
 if __name__ == "__main__":
