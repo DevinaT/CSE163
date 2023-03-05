@@ -1,0 +1,28 @@
+row_id,Year,LocationAbbr,LocationDesc,Category,Topic,Indicator,Data_Value_Unit,Data_Value,Data_Value_Alt,Break_Out_Category,Break_Out
+BRFSS~2017~56~BR019~AGE06~Crude,2017,WY,Wyoming,Risk Factors,Obesity,Prevalence of obesity among US adults (20+); BRFSS,Percent (%),28.6,28.6,Age,65+
+BRFSS~2017~27~BR016~AGE05~Crude,2017,MN,Minnesota,Risk Factors,Diabetes,Prevalence of diabetes among US adults (18+); BRFSS,Percent (%),9.4,9.4,Age,45-64
+BRFSS~2015~04~BR017~AGE08~Crude,2015,AZ,Arizona,Risk Factors,Smoking,Prevalence of current smoking among US adults (18+); BRFSS,Percent (%),5.7,5.7,Age,75+
+BRFSS~2014~46~BR016~GEN02~Crude,2014,SD,South Dakota,Risk Factors,Diabetes,Prevalence of diabetes among US adults (18+); BRFSS,Percent (%),8.6,8.6,Gender,Female
+BRFSS~2015~38~BR016~AGE06~Crude,2015,ND,North Dakota,Risk Factors,Diabetes,Prevalence of diabetes among US adults (18+); BRFSS,Percent (%),21.1,21.1,Age,65+
+BRFSS~2013~50~BR016~OVR01~Crude,2013,VT,Vermont,Risk Factors,Diabetes,Prevalence of diabetes among US adults (18+); BRFSS,Percent (%),7.8,7.8,Overall,Overall
+BRFSS~2013~15~BR019~AGE06~Crude,2013,HI,Hawaii,Risk Factors,Obesity,Prevalence of obesity among US adults (20+); BRFSS,Percent (%),16.1,16.1,Age,65+
+BRFSS~2011~24~BR016~RAC04~Crude,2011,MD,Maryland,Risk Factors,Diabetes,Prevalence of diabetes among US adults (18+); BRFSS,Percent (%),5.5,5.5,Race,Hispanic
+BRFSS~2017~06~BR016~RAC07~Crude,2017,CA,California,Risk Factors,Diabetes,Prevalence of diabetes among US adults (18+); BRFSS,Percent (%),18.4,18.4,Race,Other
+BRFSS~2017~50~BR019~AGE07~Crude,2017,VT,Vermont,Risk Factors,Obesity,Prevalence of obesity among US adults (20+); BRFSS,Percent (%),30,30,Age,35+
+BRFSS~2013~19~BR016~AGE06~Crude,2013,IA,Iowa,Risk Factors,Diabetes,Prevalence of diabetes among US adults (18+); BRFSS,Percent (%),21.9,21.9,Age,65+
+BRFSS~2018~24~BR016~OVR01~Crude,2018,MD,Maryland,Risk Factors,Diabetes,Prevalence of diabetes among US adults (18+); BRFSS,Percent (%),12,12,Overall,Overall
+BRFSS~2013~16~BR016~AGE08~Crude,2013,ID,Idaho,Risk Factors,Diabetes,Prevalence of diabetes among US adults (18+); BRFSS,Percent (%),17.6,17.6,Age,75+
+BRFSS~2017~44~BR016~RAC04~Crude,2017,RI,Rhode Island,Risk Factors,Diabetes,Prevalence of diabetes among US adults (18+); BRFSS,Percent (%),9.4,9.4,Race,Hispanic
+BRFSS~2012~49~BR019~RAC07~Crude,2012,UT,Utah,Risk Factors,Obesity,Prevalence of obesity among US adults (20+); BRFSS,Percent (%),31.2,31.2,Race,Other
+BRFSS~2018~18~BR016~AGE04~Crude,2018,IN,Indiana,Risk Factors,Diabetes,Prevalence of diabetes among US adults (18+); BRFSS,Percent (%),4.6,4.6,Age,25-44
+BRFSS~2014~29~BR016~GEN02~Crude,2014,MO,Missouri,Risk Factors,Diabetes,Prevalence of diabetes among US adults (18+); BRFSS,Percent (%),10.8,10.8,Gender,Female
+BRFSS~2014~19~BR017~GEN01~Crude,2014,IA,Iowa,Risk Factors,Smoking,Prevalence of current smoking among US adults (18+); BRFSS,Percent (%),19.9,19.9,Gender,Male
+,2014,OK,Oklahoma,Risk Factors,Obesity,Prevalence of obesity among US adults (20+); BRFSS,Percent (%),40,40,Age,45-64
+BRFSS~2013~12~BR019~AGE05~Crude,2013,FL,Florida,Risk Factors,Obesity,Prevalence of obesity among US adults (20+); BRFSS,Percent (%),30.2,30.2,Age,45-64
+BRFSS~2015~55~BR016~RAC07~Crude,2015,WI,Wisconsin,Risk Factors,Diabetes,Prevalence of diabetes among US adults (18+); BRFSS,Percent (%),21.5,21.5,Race,Other
+BRFSS~2016~16~BR016~AGE06~Crude,2016,ID,Idaho,Risk Factors,Diabetes,Prevalence of diabetes among US adults (18+); BRFSS,Percent (%),21.3,21.3,Age,65+
+BRFSS~2017~20~BR016~RAC04~Crude,2017,KS,Kansas,Risk Factors,Diabetes,Prevalence of diabetes among US adults (18+); BRFSS,Percent (%),11.7,11.7,Race,Hispanic
+BRFSS~2015~18~BR016~AGE05~Crude,2015,IN,Indiana,Risk Factors,Diabetes,Prevalence of diabetes among US adults (18+); BRFSS,Percent (%),15.9,15.9,Age,45-64
+BRFSS~2014~17~BR019~AGE08~Crude,2014,IL,Illinois,Risk Factors,Obesity,Prevalence of obesity among US adults (20+); BRFSS,Percent (%),27.1,27.1,Age,75+
+BRFSS~2011~26~BR005~GEN02~Crude,2011,MI,Michigan,Cardiovascular Diseases,Stroke,Prevalence of stroke among US adults (18+); BRFSS,Percent (%),3.5,3.5,Gender,Female
+BRFSS~2017~21~BR016~OVR01~Crude,2017,KY,Kentucky,Risk Factors,Diabetes,Prevalence of diabetes among US adults (18+); BRFSS,Percent (%),12.9,12.9,Overall,Overall
