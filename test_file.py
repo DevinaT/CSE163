@@ -8,10 +8,16 @@ from projects_utils import assert_equals
 # store string as constant and read content to get the data frame
 TEST_OBESITY_RESULT = pd.read_csv('https://raw.githubusercontent.com/DevinaT/'
                                   'CSE163/main/obesity_test_clean.csv')
+test_tabacco_result = pd.read_csv('')
 
 
-# def test_tabacco_clean(test_file: str) -> None:
-    # assert_equals(filtered_test_df, cd.tabacco_clean(unfiltered_test_tabacco))
+def test_tabacco_clean(test_file: str) -> None:
+    filtered_test_df = cd.tabacco_clean(test_file)
+    assert_equals(test_tabacco_result, filtered_test_df)
+    '''
+    This function takes in a test data set anf returns a cleaned version. 
+    This is used to test the tabacco_clean method in the CleanedData file. 
+    '''
 
 def test_obesity_clean(test_file: str, result_file: str) -> None:
     """
@@ -37,6 +43,8 @@ def main():
 
     test_obesity_clean("https://raw.githubusercontent.com/DevinaT/CSE163/main/obesity_test.csv",
                        TEST_OBESITY_RESULT)
+    test_tabacco_clean("https://raw.githubusercontent.com/DevinaT/CSE163/main/test_tabacco.csv", 
+                       test_tabacco_result)
 
 
 if __name__ == "__main__":
