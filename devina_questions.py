@@ -84,7 +84,7 @@ def main():
     top10 = find_top_ten(cardio_vasc)
     cardio_vasco = format_cardiovasc(cardio_vasc, top10)
     obesity_df = format_obesity(obesity, top10)
-    print(obesity_df)
+    # print(obesity_df)
     # plotting time!
     # this is for obesity
     fig = px.line(obesity_df, x='Year',

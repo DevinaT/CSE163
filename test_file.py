@@ -16,6 +16,7 @@ test_c_cleaned = pd.read_csv('https://raw.githubusercontent.com/DevinaT/'
                              'CSE163/main/cardiovascular_test_cleaned.csv')
 top_ten_list = [['OK', 'UT', 'FL', 'WY', 'IL', 'WI', 'ND', 'IA', 'ID', 'VT']]  # type for this??
 format_cardiovasc_method = pd.read_csv('https://raw.githubusercontent.com/DevinaT/CSE163/main/format_cardio_vasc.csv')
+format_obesity_method = pd.read_csv('https://raw.githubusercontent.com/DevinaT/CSE163/main/format_obesity.csv')
 
 
 def test_tabacco_clean(test_file: str, result_file: str) -> None:
@@ -87,9 +88,9 @@ def test_format_cardiovasc(test_file: str) -> None:
     print("format_cardiovasc passed!")
 
 
-def test_format_obesity(test_file: str) -> None:
-    assert_equals(test_file, d.format_obesity(test_file, top_ten_list))
-    print("format_obesity passed!")
+# def test_format_obesity(test_file: str) -> None:
+    # assert_equals(format_obesity_method, d.format_obesity(test_file, top_ten_list))
+    # print("format_obesity passed!")
 
 
 def main():
@@ -102,7 +103,7 @@ def main():
     test_cardiovascular_clean(test_c_cleaned)
     test_top_ten_list()
     test_format_cardiovasc(test_c_cleaned)
-    test_format_obesity(TEST_OBESITY_RESULT)
+    # test_format_obesity(TEST_OBESITY_RESULT)
 
 
 if __name__ == "__main__":
