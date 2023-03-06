@@ -23,10 +23,9 @@ def cardio_filtered(cardio_vasc: pd.DataFrame) -> pd.DataFrame:
     dataframe and returns a filtered version with columns
     of interest to make joining easier.
     '''
-    # cardio_vasc = cd.cardiovascular_df
     # Choosing the rows that have breakout categories of intrest which is race
-    cardio_vasc = cardio_vasc[(cardio_vasc['Break_Out_Category'] == 'Race') &
-                              ((cardio_vasc['Break_Out'] == 'Non-Hispanic Black') |
+    cardio_vasc = cardio_vasc[cardio_vasc['Break_Out_Category'] == 'Race']
+    cardio_vasc = cardio_vasc[((cardio_vasc['Break_Out'] == 'Non-Hispanic Black') |
                                (cardio_vasc['Break_Out'] == 'Non-Hispanic Asian') |
                                (cardio_vasc['Break_Out'] == 'Non-Hispanic White') |
                                (cardio_vasc['Break_Out'] == 'Hispanic'))]
