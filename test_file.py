@@ -114,7 +114,8 @@ def main():
     test_top_ten_list()
     test_format_cardiovasc(test_c_cleaned)
     # test_format_obesity(TEST_OBESITY_RESULT)
-    test_cardio_filtered(test_cardiovascular_clean, test_cardio_filtered_result)
+    test_cardio_filtered("https://raw.githubusercontent.com/DevinaT/CSE163/main/niyat_test_cardio_filtered_file.csv",
+                          test_cardio_filtered_result)
 
 
 if __name__ == "__main__":
