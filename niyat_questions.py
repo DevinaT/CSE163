@@ -40,12 +40,14 @@ def cardio_filtered(cardio_vasc: pd.DataFrame) -> pd.DataFrame:
     return cardio_vasc
 
 
-def join_cardio_tabacco(tabacco: pd.DataFrame, cardio_vasc: pd.DataFrame) -> pd.DataFrame:
+def join_cardio_tabacco(tabacco: pd.DataFrame, 
+                        cardio_vasc: pd.DataFrame) -> pd.DataFrame:
     '''
     This function returns the joined dataframe
     of tabacco and the cardiovascular 'Race'.
     '''
-    combined_data = cardio_vasc.merge(tabacco, left_on='Break_Out', right_on='Race', how='outer')
+    combined_data = cardio_vasc.merge(tabacco, left_on='Break_Out',
+                                      right_on='Race', how='outer')
 
     return combined_data
 
@@ -90,8 +92,8 @@ def question_3_graph(results_by_race: pd.DataFrame) -> None:
                          marker=dict(color=results_by_race['smoker_percent'],
                                      coloraxis="coloraxis")))
     fig.update_layout(
-        title="Comparing Percentage of People with Cardiovascular Disease vs. " +
-              "Current Smokers by Race",
+        title="Comparing Percentage of People with Cardiovascular Disease vs."
+              + "Current Smokers by Race",
         xaxis_title="Race",
         yaxis_title="Percentage (%)",
         legend_title="Status"
@@ -101,8 +103,10 @@ def question_3_graph(results_by_race: pd.DataFrame) -> None:
 
 
 def main():
-    tabacco = cd.tabacco_clean('https://raw.githubusercontent.com/DevinaT/CSE163/main/Tobacco.csv')
-    cardio_vasc = cd.cardiovascular_cleaned('https://raw.githubusercontent.com/DevinaT/CSE163/main/Cardiovascular.csv')
+    tabacco = cd.tabacco_clean('https://raw.githubusercontent.com/DevinaT'
+                               '/CSE163/main/Tobacco.csv')
+    cardio_vasc = cd.cardiovascular_cleaned('https://raw.githubusercontent.com/'
+                                            'DevinaT/CSE163/main/Cardiovascular.csv')
 
     c_filtered = cardio_filtered(cardio_vasc)
     t_filtered = tabacco_filtered(tabacco)

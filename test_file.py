@@ -15,9 +15,13 @@ test_tabcacco_filtered_result = pd.read_csv('https://raw.githubusercontent.com/D
 test_c_cleaned = pd.read_csv('https://raw.githubusercontent.com/DevinaT/'
                              'CSE163/main/cardiovascular_test_cleaned.csv')
 top_ten_list = [['OK', 'UT', 'FL', 'WY', 'IL', 'WI', 'ND', 'IA', 'ID', 'VT']]  # type for this??
-format_cardiovasc_method = pd.read_csv('https://raw.githubusercontent.com/DevinaT/CSE163/main/format_cardio_vasc.csv')
-format_obesity_method = pd.read_csv('https://raw.githubusercontent.com/DevinaT/CSE163/main/format_obesity.csv')
-test_cardio_filtered_result = pd.read_csv('https://raw.githubusercontent.com/DevinaT/CSE163/main/niyat_test_cardio_filtered_result.csv')
+format_cardiovasc_method = pd.read_csv('https://raw.githubusercontent.com/DevinaT'
+                                       '/CSE163/main/format_cardio_vasc.csv')
+format_obesity_method = pd.read_csv('https://raw.githubusercontent.com/DevinaT/'
+                                    'CSE163/main/format_obesity.csv')
+# test_cardio_filtered_result = pd.read_csv('https://raw.githubusercontent.com/DevinaT'
+#                                           '/CSE163/main/niyat_test_cardio_filtered_result.csv')
+test_cardio_filtered_result = pd.read_csv('')
 
 
 
@@ -114,9 +118,9 @@ def main():
     test_top_ten_list()
     test_format_cardiovasc(test_c_cleaned)
     # test_format_obesity(TEST_OBESITY_RESULT)
-    test_cardio_filtered("https://raw.githubusercontent.com/DevinaT/CSE163/main/niyat_test_cardio_filtered_file.csv",
-                         test_cardio_filtered_result)
-
+    # test_cardio_filtered("https://raw.githubusercontent.com/DevinaT/CSE163/main/niyat_test_cardio_filtered_file.csv",
+    #                      test_cardio_filtered_result)
+    test_cardio_filtered(test_cardiovascular_clean, test_cardio_filtered_result)
 
 if __name__ == "__main__":
     main()
