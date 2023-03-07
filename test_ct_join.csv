@@ -1,7 +1,6 @@
 ﻿YEAR,LocationAbbr_x,LocationDesc,Category,Topic,Indicator,Data_Value_Unit,Data_Value_Alt,Break_Out_Category,Break_Out,YEAR,LocationAbbr_y,TopicDesc,MeasureDesc,smoker_percent,Gender,Race,Age,Education
-,,,,,,,,,,2019,CO,Cigarette Use (Adults),Current Smoking,17,Overall,African American,All Ages,All Grades
 2011,MD,Maryland,Cardiovascular Diseases,Stroke,Prevalence of diabetes among US adults (18+); BRFSS,Percent (%),5.5,Race,Hispanic,,,,,,,,,
-2018,MD,Maryland,Cardiovascular Diseases,Stroke,Prevalence of diabetes among US adults (18+); BRFSS,Percent (%),12,Race,African American,,,,,,,,,
 2017,KS,Kansas,Cardiovascular Diseases,Stroke,Prevalence of diabetes among US adults (18+); BRFSS,Percent (%),11.7,Race,Hispanic,,,,,,,,,
+2018,MD,Maryland,Cardiovascular Diseases,Stroke,Prevalence of diabetes among US adults (18+); BRFSS,Percent (%),12,Race,African American,2019,CO,Cigarette Use (Adults),,17,,,,
 2015,IN,Indiana,Cardiovascular Diseases,Stroke,Prevalence of diabetes among US adults (18+); BRFSS,Percent (%),15.9,Race,White,,,,,,,,,
 ,,,,,,,,,,,,,,,,,,
