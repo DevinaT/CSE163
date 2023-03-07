@@ -13,7 +13,6 @@ def tabacco_filtered(tabacco: pd.DataFrame) -> pd.DataFrame:
                                                           'American Indian/Alaska Native')]
     # Renaming the data value column to avoid confusion
     tabacco = tabacco.rename(columns={'Data_Value': 'smoker_percent'})
-
     return tabacco
 
 
@@ -48,7 +47,7 @@ def join_cardio_tabacco(tabacco: pd.DataFrame,
     '''
     combined_data = cardio_vasc.merge(tabacco, left_on='Break_Out',
                                       right_on='Race', how='outer')
-
+    print(combined_data.head(1))
     return combined_data
 
 
