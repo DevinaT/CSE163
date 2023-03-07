@@ -4,6 +4,7 @@ from projects_utils import assert_equals
 import niyat_questions as n
 import devina_questions as d
 from pandas.testing import assert_frame_equal
+import numpy as np
 
 
 # store string as constant and read content to get the data frame
@@ -20,7 +21,7 @@ top_ten_list = [['OK', 'UT', 'FL', 'WY', 'IL', 'WI', 'ND', 'IA', 'ID', 'VT']]  #
 format_cardiovasc_method = pd.read_csv('https://raw.githubusercontent.com/DevinaT'
                                        '/CSE163/main/format_cardio_vasc.csv')
 format_obesity_method = pd.read_csv('https://raw.githubusercontent.com/DevinaT/'
-                                    'CSE163/main/format_obesity.csv')
+                                    'CSE163/main/format_obesity.csv', dtype={'Year': "int64", 'Average Obesity Percentage Rate': 'float64'})
 # test_cardio_filtered_result = pd.read_csv('https://raw.githubusercontent.com/DevinaT'
 #                                           '/CSE163/main/niyat_test_cardio_filtered_result.csv',
 #                                            dtype={'Year': "int64", 'Data_Value': 'float64',
@@ -129,9 +130,10 @@ def test_join_cardio_tabacco(test_t_file: str, test_c_file: str, result_file: st
     print('join_cardio_tabacco passed!')
 
 
-# def test_format_obesity(test_file: str) -> None:
-    # assert_equals(format_obesity_method, d.format_obesity(test_file, top_ten_list))
-    # print("format_obesity passed!")
+def test_format_obesity(test_file: str) -> None:
+    recieved = d.format_obesity(test_file, top_ten_list)
+    np.array_equal(recieved.values,format_obesity_method.values)
+    print("format_obesity passed!")
 
 
 def main():
@@ -144,11 +146,12 @@ def main():
     test_file = test_cardiovascular_clean(test_c_cleaned)    
     test_top_ten_list()
     test_format_cardiovasc(test_c_cleaned)
-    # test_format_obesity(TEST_OBESITY_RESULT)
+    test_format_obesity(TEST_OBESITY_RESULT)
     test_cardio_filtered(test_file,
                          test_cardio_filtered_result)
     test_join_cardio_tabacco(test_t_df, pd.read_csv(test_c_file),
                              pd.read_csv(test_ct_join_result))
+
 
 if __name__ == "__main__":
     main()
