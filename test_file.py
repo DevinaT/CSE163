@@ -3,15 +3,17 @@ import pandas as pd
 from projects_utils import assert_equals
 import niyat_questions as n
 import devina_questions as d
+from pandas.testing import assert_frame_equal
 
 
 # store string as constant and read content to get the data frame
 TEST_OBESITY_RESULT = pd.read_csv('https://raw.githubusercontent.com/DevinaT/'
                                   'CSE163/main/obesity_test_clean.csv')
 test_tabacco_result = pd.read_csv('https://raw.githubusercontent.com/DevinaT/'
-                                  'CSE163/main/TES_tabacco_filtered.csv')
+                                  'CSE163/main/TES_tabacco_filtered.csv', 
+                                  dtype={'YEAR': "string"})
 test_tabcacco_filtered_result = pd.read_csv('https://raw.githubusercontent.com/DevinaT/'
-                                            'CSE163/main/TEST_T_FILTER_RESULT.csv')
+                                            'CSE163/main/TEST_T_FILTER_RESULT.csv', dtype={'YEAR': "string"})
 test_c_cleaned = pd.read_csv('https://raw.githubusercontent.com/DevinaT/'
                              'CSE163/main/cardiovascular_test_cleaned.csv')
 top_ten_list = [['OK', 'UT', 'FL', 'WY', 'IL', 'WI', 'ND', 'IA', 'ID', 'VT']]  # type for this??
@@ -20,9 +22,11 @@ format_cardiovasc_method = pd.read_csv('https://raw.githubusercontent.com/Devina
 format_obesity_method = pd.read_csv('https://raw.githubusercontent.com/DevinaT/'
                                     'CSE163/main/format_obesity.csv')
 # test_cardio_filtered_result = pd.read_csv('https://raw.githubusercontent.com/DevinaT'
-#                                           '/CSE163/main/niyat_test_cardio_filtered_result.csv')
-test_cardio_filtered_result = pd.read_csv('')
-
+#                                           '/CSE163/main/niyat_test_cardio_filtered_result.csv',
+#                                            dtype={'Year': "int64", 'Data_Value': 'float64',
+#                                                   'Data_Value_Alt': 'float64'})
+test_cardio_filtered_result = pd.read_csv('https://raw.githubusercontent.com/DevinaT/'
+                                          'CSE163/main/test_cardio_filtered2.csv', dtype={'Year': "int64", 'Data_Value': 'float64', 'Data_Value_Alt': 'float64'})
 
 
 def test_tabacco_clean(test_file: str, result_file: str) -> None:
@@ -32,8 +36,10 @@ def test_tabacco_clean(test_file: str, result_file: str) -> None:
     '''
     filtered_test_df = cd.tabacco_clean(test_file)
     filtered_test_df = filtered_test_df.reset_index(drop=True)
+    assert_equals(filtered_test_df, result_file)
     assert_equals(len(result_file), len(filtered_test_df))
     print("test_tabacco_clean passed!")
+    return filtered_test_df
 
 
 def test_tabcacco_filtered(test_file: str, result_file: str) -> None:
@@ -42,7 +48,7 @@ def test_tabcacco_filtered(test_file: str, result_file: str) -> None:
     '''
     filtered_df = n.tabacco_filtered(test_file)
     filtered_df = filtered_df.reset_index(drop=True)
-    assert_equals(filtered_df, test_tabcacco_filtered_result)
+    assert_equals(filtered_df, result_file)
     assert_equals(len(result_file), len(filtered_df))
     print("test_tabacco_filtered passed!")
 
@@ -61,7 +67,7 @@ def test_obesity_clean(test_file: str, result_file: str) -> None:
     clean_obesity_test = clean_obesity_test.reset_index(drop=True)
 
     assert_equals(len(result_file), len(clean_obesity_test))
-    assert_equals(TEST_OBESITY_RESULT, clean_obesity_test)
+    assert_equals(result_file, clean_obesity_test)
     print("test_obsity_clean passed")
 
 
@@ -81,12 +87,15 @@ def test_cardiovascular_clean(result_file: str) -> None:
     assert_equals(len(result_file), len(clean_cardio))
     assert_equals(result_file, clean_cardio)
     print("test_cardiovascular_clean passed!")
+    return clean_cardio
 
 
 def test_cardio_filtered(test_file: str, result_file: str) -> None:
     filtered_df = n.cardio_filtered(test_file)
-    filtered_df = filtered_df.reset_index(drop=True)
-    assert_equals(filtered_df, test_cardio_filtered_result)
+    # print(filtered_df.info())
+    # print(result_file.info())
+    assert_frame_equal(filtered_df.reset_index(drop=True),
+                       result_file.reset_index(drop=True))
     assert_equals(len(result_file), len(filtered_df))
     print("test_cardio_filtered passed!")
 
@@ -102,6 +111,17 @@ def test_format_cardiovasc(test_file: str) -> None:
     print("format_cardiovasc passed!")
 
 
+def test_join_cardio_tabacco(test_t_file: str, test_c_file: str, result_file: str) -> None:
+    '''
+    This tests join_cardio_tabacco method in the niyat's_question module.
+    '''
+    df = n.join_cardio_tabacco(test_t_file, test_c_file)
+    assert_frame_equal(df.reset_index(drop=True),
+                       result_file.reset_index(drop=True))
+    assert_equals(len(result_file), len(df))
+    print('join_cardio_tabacco passed!')
+
+
 # def test_format_obesity(test_file: str) -> None:
     # assert_equals(format_obesity_method, d.format_obesity(test_file, top_ten_list))
     # print("format_obesity passed!")
@@ -111,16 +131,16 @@ def main():
 
     test_obesity_clean("https://raw.githubusercontent.com/DevinaT/CSE163/main/obesity_test.csv",
                        TEST_OBESITY_RESULT)
-    test_tabacco_clean("https://raw.githubusercontent.com/DevinaT/CSE163/main/test_tabacco.csv",
-                       test_tabacco_result)
-    test_tabcacco_filtered(test_tabacco_result, test_tabcacco_filtered_result)
-    test_cardiovascular_clean(test_c_cleaned)
+    test_tab = test_tabacco_clean("https://raw.githubusercontent.com/DevinaT/CSE163/main/test_tabacco.csv",
+                                   test_tabacco_result)
+    test_t_df = test_tabcacco_filtered(test_tab, test_tabcacco_filtered_result)
+    test_file = test_cardiovascular_clean(test_c_cleaned)    
     test_top_ten_list()
     test_format_cardiovasc(test_c_cleaned)
     # test_format_obesity(TEST_OBESITY_RESULT)
-    # test_cardio_filtered("https://raw.githubusercontent.com/DevinaT/CSE163/main/niyat_test_cardio_filtered_file.csv",
-    #                      test_cardio_filtered_result)
-    test_cardio_filtered(test_cardiovascular_clean, test_cardio_filtered_result)
+    test_cardio_filtered(test_file,
+                         test_cardio_filtered_result)
+    test_join_cardio_tabacco(test_t_df)
 
 if __name__ == "__main__":
     main()

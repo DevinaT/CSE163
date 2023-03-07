@@ -62,7 +62,7 @@ def final_table(combined_data: pd.DataFrame) -> pd.DataFrame:
     race_cardio = combined_data.groupby('Race')['Data_Value_Alt'].mean()
     # Find each races avg smoking rate
     race_smoke = combined_data.groupby('Race')['smoker_percent'].mean()
-    # Combining the two
+    # Combining the two in data frame
     results_by_race = pd.DataFrame(race_smoke).join(race_cardio)
     # Reseting index so that Race is a column
     results_by_race = results_by_race.reset_index()
