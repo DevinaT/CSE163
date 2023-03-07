@@ -147,7 +147,7 @@ def main():
     # test_format_obesity(TEST_OBESITY_RESULT)
     test_cardio_filtered(test_file,
                          test_cardio_filtered_result)
-    test_join_cardio_tabacco(test_t_df, pd.read_csv(test_c_file), 
+    test_join_cardio_tabacco(test_t_df, pd.read_csv(test_c_file),
                              pd.read_csv(test_ct_join_result))
 
 if __name__ == "__main__":
