@@ -3,6 +3,7 @@ import pandas as pd
 from projects_utils import assert_equals
 import niyat_questions as n
 import devina_questions as d
+import claire_questions as c
 from pandas.testing import assert_frame_equal
 import numpy as np
 
@@ -73,15 +74,27 @@ def test_obesity_clean(test_file: str, result_file: str) -> None:
 
     assert_equals(len(result_file), len(clean_obesity_test))
     assert_equals(result_file, clean_obesity_test)
-    print("test_obsity_clean passed")
+    print("test_obesity_clean passed!")
+
+
+def test_q1_filter_obesity(test_file: str, result_file: str) -> None:
+    """
+    This function takes in a test data set and a cleaned version of the
+    dataset and sees if they are equal after the function
+    cd.q1_filter_obesity is called on them.
+    """
+    cleaned_test = c.q1_filter_obesity(test_file)
+    assert_equals(len(result_file), len(cleaned_test))
+    assert_equals(result_file, cleaned_test)
+    print("test_q1_filter_obesity passed!")
 
 
 def test_cardiovascular_clean(result_file: str) -> None:
     """
     This function takes in a test data set and a cleaned verison of the
     test dataset and sees if they are equal to each other after the
-    function cd.cardiovascular_cleaned is called on them. In order to test this,
-    the indexes of the cleaned test_file must be rest so the indexs are
+    function cd.cardiovascular_cleaned is called on them. In order to test
+    this, the indexes of the cleaned test_file must be rest so the indexs are
     the same. If not the files will not be equal even if the content
     inside of them are equal.
     """
