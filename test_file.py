@@ -112,11 +112,13 @@ def test_top_ten_list() -> None:
 
 
 def test_format_cardiovasc(test_file: str) -> None:
-    assert_equals(format_cardiovasc_method, d.format_cardiovasc(test_file, top_ten_list))
+    assert_equals(format_cardiovasc_method, d.format_cardiovasc(test_file,
+                                                                top_ten_list))
     print("format_cardiovasc passed!")
 
 
-def test_join_cardio_tabacco(test_t_file: str, test_c_file: str, result_file: str) -> None:
+def test_join_cardio_tabacco(test_t_file: str, test_c_file: str, 
+                             result_file: str) -> None:
     '''
     This tests join_cardio_tabacco method in the niyat's_question module.
     '''
@@ -124,10 +126,10 @@ def test_join_cardio_tabacco(test_t_file: str, test_c_file: str, result_file: st
     # print(df)
     for col in df.columns:
         print(col)
-    for col in result_file.columsn:
+    for col in result_file.columns:
         print(col)
-    # assert_frame_equal(df.reset_index(drop=True),
-    #                    result_file.reset_index(drop=True))
+    assert_frame_equal(df.reset_index(drop=True),
+                       result_file.reset_index(drop=True))
     assert_equals(len(result_file), len(df))
     assert_frame_equal(df, result_file)
     print('join_cardio_tabacco passed!')
