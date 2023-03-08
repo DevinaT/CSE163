@@ -30,7 +30,7 @@ test_cardio_filtered_result = pd.read_csv('https://raw.githubusercontent.com/Dev
                                           'CSE163/main/test_cardio_filtered2.csv', dtype={'Year': "int64", 'Data_Value': 'float64', 'Data_Value_Alt': 'float64'})
 
 test_c_file = 'https://raw.githubusercontent.com/DevinaT/CSE163/main/niyat_test_join_cardio.csv'
-test_ct_join_result = 'https://raw.githubusercontent.com/DevinaT/CSE163/main/TEST_JOIN_DF.csv'
+test_ct_join_result = 'https://raw.githubusercontent.com/DevinaT/CSE163/main/Copy%20of%20TEST_JOIN_DF.csv'
 
 
 def test_tabacco_clean(test_file: str, result_file: str) -> None:
