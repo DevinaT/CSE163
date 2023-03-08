@@ -1,0 +1,6 @@
+﻿Year,Locationabbr,Response,Break_Out,Data_value,GeoLocation
+2018,AZ,Obese (BMI 30.0 - 99.8),18-24,6.3,"(13.40203, 3.230304)"
+2019,AZ,Obese (BMI 30.0 - 99.8),25-34,10.3,"(13.40203, 3.230304)"
+2020,AZ,Underweight,Overall,14.3,"(13.40203, 3.230304)"
+2019,AZ,Obese (BMI 30.0 - 99.8),35-44,10.3,"(13.40203, 3.230304)"
+2020,AZ,Obese (BMI 30.0 - 99.8),65+,14.3,"(13.40203, 3.230304)"
