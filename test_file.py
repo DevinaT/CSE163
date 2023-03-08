@@ -87,8 +87,6 @@ def test_q1_filter_obesity(test_file: str, result_file: str) -> None:
     """
     cleaned_test = c.q1_filter_obesity(test_file)
     cleaned_test = cleaned_test.reset_index(drop=True)
-    print(cleaned_test)
-    print(result_file)
     assert_equals(len(result_file), len(cleaned_test))
     assert_frame_equal(result_file, cleaned_test)
     assert_equals(result_file, cleaned_test)
