@@ -123,12 +123,13 @@ def test_join_cardio_tabacco(test_t_file: str, test_c_file: str,
     This tests join_cardio_tabacco method in the niyat's_question module.
     '''
     df = n.join_cardio_tabacco(test_t_file, test_c_file)
-    # print(df)
-    for col in df.columns:
-        print(col)
-    print()
-    for col in result_file.columns:
-        print(col)
+    print(df)
+    print(result_file)
+    # for col in df.columns:
+        # print(col)
+    # print()
+    # for col in result_file.columns:
+        #print(col)
     assert_frame_equal(df.reset_index(drop=True),
                        result_file.reset_index(drop=True))
     assert_equals(len(result_file), len(df))
