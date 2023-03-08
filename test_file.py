@@ -126,6 +126,7 @@ def test_join_cardio_tabacco(test_t_file: str, test_c_file: str,
     # print(df)
     for col in df.columns:
         print(col)
+    print()
     for col in result_file.columns:
         print(col)
     assert_frame_equal(df.reset_index(drop=True),
