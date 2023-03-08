@@ -11,6 +11,7 @@ import numpy as np
 # store string as constant and read content to get the data frame
 TEST_OBESITY_RESULT = pd.read_csv('https://raw.githubusercontent.com/DevinaT/'
                                   'CSE163/main/obesity_test_clean.csv')
+Q1_TEST_FILE = 'https://raw.githubusercontent.com/DevinaT/CSE163/main/q1_test_file.csv'
 test_tabacco_result = pd.read_csv('https://raw.githubusercontent.com/DevinaT/'
                                   'CSE163/main/TES_tabacco_filtered.csv', 
                                   dtype={'YEAR': "string"})
@@ -84,6 +85,7 @@ def test_q1_filter_obesity(test_file: str, result_file: str) -> None:
     cd.q1_filter_obesity is called on them.
     """
     cleaned_test = c.q1_filter_obesity(test_file)
+    print(cleaned_test)
     assert_equals(len(result_file), len(cleaned_test))
     assert_equals(result_file, cleaned_test)
     print("test_q1_filter_obesity passed!")
@@ -162,6 +164,8 @@ def main():
                          test_cardio_filtered_result)
     test_join_cardio_tabacco(test_t_df, pd.read_csv(test_c_file),
                              pd.read_csv(test_ct_join_result, dtype={'Year': 'int64', 'YEAR': 'string'}))
+    q1_test = pd.read_csv(Q1_TEST_FILE)
+    test_q1_filter_obesity(q1_test, q1_test)
 
 
 if __name__ == "__main__":

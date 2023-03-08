@@ -45,7 +45,7 @@ def q1_filter_obesity(obesity: pd.DataFrame) -> pd.DataFrame:
     early_adult_df = obesity.loc[is_obese & early_adult]
     early_adult_grouped = early_adult_df.groupby(["GeoLocation", "Year"])["Data_value"].mean()
     early_adult_grouped = early_adult_grouped.reset_index()
-    early_adult_grouped["Break_Out"] = ["25 to 44 Years"] * 398
+    early_adult_grouped["Break_Out"] = ["25 to 44 Years"] * len(early_adult_grouped)
     # print(early_adult_grouped)
     new_df = pd.concat([filtered_obesity, early_adult_grouped])
 
@@ -53,7 +53,7 @@ def q1_filter_obesity(obesity: pd.DataFrame) -> pd.DataFrame:
     middle_adult_df = obesity.loc[is_obese & middle_adult]
     middle_adult_grouped = middle_adult_df.groupby(["GeoLocation", "Year"])["Data_value"].mean()
     middle_adult_grouped = middle_adult_grouped.reset_index()
-    middle_adult_grouped["Break_Out"] = ["45 to 64 Years"] * 398
+    middle_adult_grouped["Break_Out"] = ["45 to 64 Years"] * len(early_adult_grouped)
     # print(middle_adult_grouped)
     new_df = pd.concat([new_df, middle_adult_grouped])
     # print(new_df)
