@@ -47,7 +47,6 @@ def join_cardio_tabacco(tabacco: pd.DataFrame,
     '''
     combined_data = cardio_vasc.merge(tabacco, left_on='Break_Out',
                                       right_on='Race', how='outer')
-    print(combined_data.head(1))
     return combined_data
 
 

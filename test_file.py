@@ -30,7 +30,7 @@ test_cardio_filtered_result = pd.read_csv('https://raw.githubusercontent.com/Dev
                                           'CSE163/main/test_cardio_filtered2.csv', dtype={'Year': "int64", 'Data_Value': 'float64', 'Data_Value_Alt': 'float64'})
 
 test_c_file = 'https://raw.githubusercontent.com/DevinaT/CSE163/main/niyat_test_join_cardio.csv'
-test_ct_join_result = 'https://raw.githubusercontent.com/DevinaT/CSE163/main/Copy%20of%20TEST_JOIN_DF.csv'
+test_ct_join_result = 'https://raw.githubusercontent.com/DevinaT/CSE163/main/%20FINAL_TEST_JOIN_DF.csv'
 
 
 def test_tabacco_clean(test_file: str, result_file: str) -> None:
@@ -97,8 +97,6 @@ def test_cardiovascular_clean(result_file: str) -> None:
 
 def test_cardio_filtered(test_file: str, result_file: str) -> None:
     filtered_df = n.cardio_filtered(test_file)
-    # print(filtered_df.info())
-    # print(result_file.info())
     assert_frame_equal(filtered_df.reset_index(drop=True),
                        result_file.reset_index(drop=True))
     assert_equals(len(result_file), len(filtered_df))
@@ -123,13 +121,6 @@ def test_join_cardio_tabacco(test_t_file: str, test_c_file: str,
     This tests join_cardio_tabacco method in the niyat's_question module.
     '''
     df = n.join_cardio_tabacco(test_t_file, test_c_file)
-    print(df)
-    print(result_file)
-    # for col in df.columns:
-        # print(col)
-    # print()
-    # for col in result_file.columns:
-        #print(col)
     assert_frame_equal(df.reset_index(drop=True),
                        result_file.reset_index(drop=True))
     assert_equals(len(result_file), len(df))
@@ -157,7 +148,7 @@ def main():
     test_cardio_filtered(test_file,
                          test_cardio_filtered_result)
     test_join_cardio_tabacco(test_t_df, pd.read_csv(test_c_file),
-                             pd.read_csv(test_ct_join_result))
+                             pd.read_csv(test_ct_join_result, dtype={'Year': 'int64', 'YEAR': 'string'}))
 
 
 if __name__ == "__main__":
