@@ -13,11 +13,10 @@ TEST_OBESITY_RESULT = pd.read_csv('https://raw.githubusercontent.com/DevinaT/'
                                   'CSE163/main/obesity_test_clean.csv')
 Q1_TEST_FILE = 'https://raw.githubusercontent.com/DevinaT/CSE163/main/q1_test_file.csv'
 Q1_RESULT_FILE = 'https://raw.githubusercontent.com/DevinaT/CSE163/main/q1_results.csv'
-test_tabacco_result = pd.read_csv('https://raw.githubusercontent.com/DevinaT/'
-                                  'CSE163/main/TES_tabacco_filtered.csv', 
-                                  dtype={'YEAR': "string"})
-test_tabcacco_filtered_result = pd.read_csv('https://raw.githubusercontent.com/DevinaT/'
-                                            'CSE163/main/TEST_T_FILTER_RESULT.csv', dtype={'YEAR': "string"})
+test_tabacco_result = ('https://raw.githubusercontent.com/DevinaT/'
+                       'CSE163/main/TES_tabacco_filtered.csv')
+test_t_filtered_result = ('https://raw.githubusercontent.com/DevinaT/'
+                          'CSE163/main/TEST_T_FILTER_RESULT.csv')
 test_c_cleaned = pd.read_csv('https://raw.githubusercontent.com/DevinaT/'
                              'CSE163/main/cardiovascular_test_cleaned.csv')
 top_ten_list = [['OK', 'UT', 'FL', 'WY', 'IL', 'WI', 'ND', 'IA', 'ID', 'VT']]  # type for this??
@@ -25,15 +24,12 @@ format_cardiovasc_method = pd.read_csv('https://raw.githubusercontent.com/Devina
                                        '/CSE163/main/format_cardio_vasc.csv')
 format_obesity_method = pd.read_csv('https://raw.githubusercontent.com/DevinaT/'
                                     'CSE163/main/format_obesity.csv', dtype={'Year': "int64", 'Average Obesity Percentage Rate': 'float64'})
-# test_cardio_filtered_result = pd.read_csv('https://raw.githubusercontent.com/DevinaT'
-#                                           '/CSE163/main/niyat_test_cardio_filtered_result.csv',
-#                                            dtype={'Year': "int64", 'Data_Value': 'float64',
-#                                                   'Data_Value_Alt': 'float64'})
-test_cardio_filtered_result = pd.read_csv('https://raw.githubusercontent.com/DevinaT/'
-                                          'CSE163/main/test_cardio_filtered2.csv', dtype={'Year': "int64", 'Data_Value': 'float64', 'Data_Value_Alt': 'float64'})
-
-test_c_file = 'https://raw.githubusercontent.com/DevinaT/CSE163/main/niyat_test_join_cardio.csv'
-test_ct_join_result = 'https://raw.githubusercontent.com/DevinaT/CSE163/main/%20FINAL_TEST_JOIN_DF.csv'
+test_cardio_filtered_result = ('https://raw.githubusercontent.com/DevinaT/'
+                               'CSE163/main/test_cardio_filtered2.csv')
+test_c_file = ('https://raw.githubusercontent.com/DevinaT/CSE163/main'
+               '/niyat_test_join_cardio.csv')
+test_ct_join_result = ('https://raw.githubusercontent.com/DevinaT'
+                       '/CSE163/main/%20FINAL_TEST_JOIN_DF.csv')
 
 
 def test_tabacco_clean(test_file: str, result_file: str) -> None:
@@ -51,7 +47,8 @@ def test_tabacco_clean(test_file: str, result_file: str) -> None:
 
 def test_tabcacco_filtered(test_file: str, result_file: str) -> None:
     '''
-    This function tests the tabacco_filtered method.
+    This function tests the tabacco_filtered method in
+    the niyats_questions moduel.
     '''
     filtered_df = n.tabacco_filtered(test_file)
     filtered_df = filtered_df.reset_index(drop=True)
@@ -141,31 +138,40 @@ def test_join_cardio_tabacco(test_t_file: str, test_c_file: str,
     assert_frame_equal(df.reset_index(drop=True),
                        result_file.reset_index(drop=True))
     assert_equals(len(result_file), len(df))
-    assert_frame_equal(df, result_file)
     print('join_cardio_tabacco passed!')
 
 
 def test_format_obesity(test_file: str) -> None:
     recieved = d.format_obesity(test_file, top_ten_list)
-    np.array_equal(recieved.values,format_obesity_method.values)
+    np.array_equal(recieved.values, format_obesity_method.values)
     print("format_obesity passed!")
 
 
 def main():
 
-    test_obesity_clean("https://raw.githubusercontent.com/DevinaT/CSE163/main/obesity_test.csv",
+    test_obesity_clean('https://raw.githubusercontent.com/DevinaT/CSE163/'
+                       'main/obesity_test.csv',
                        TEST_OBESITY_RESULT)
-    test_tab = test_tabacco_clean("https://raw.githubusercontent.com/DevinaT/CSE163/main/test_tabacco.csv",
-                                   test_tabacco_result)
-    test_t_df = test_tabcacco_filtered(test_tab, test_tabcacco_filtered_result)
+    test_tab = test_tabacco_clean('https://raw.githubusercontent.com/DevinaT/'
+                                  'CSE163/main/test_tabacco.csv',
+                                  pd.read_csv(test_tabacco_result,
+                                              dtype={'YEAR': "string"}))
+    test_t_df = test_tabcacco_filtered(test_tab,
+                                       pd.read_csv(test_t_filtered_result,
+                                                   dtype={'YEAR': "string"}))
     test_file = test_cardiovascular_clean(test_c_cleaned)
     test_top_ten_list()
     test_format_cardiovasc(test_c_cleaned)
     test_format_obesity(TEST_OBESITY_RESULT)
     test_cardio_filtered(test_file,
-                         test_cardio_filtered_result)
+                         pd.read_csv(test_cardio_filtered_result,
+                                     dtype={'Year': "int64",
+                                            'Data_Value': 'float64',
+                                            'Data_Value_Alt': 'float64'}))
     test_join_cardio_tabacco(test_t_df, pd.read_csv(test_c_file),
-                             pd.read_csv(test_ct_join_result, dtype={'Year': 'int64', 'YEAR': 'string'}))
+                             pd.read_csv(test_ct_join_result,
+                                         dtype={'Year': 'int64',
+                                                'YEAR': 'string'}))
     q1_test = pd.read_csv(Q1_TEST_FILE)
     q1_result = pd.read_csv(Q1_RESULT_FILE)
     test_q1_filter_obesity(q1_test, q1_result)

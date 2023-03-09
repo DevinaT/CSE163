@@ -10,7 +10,8 @@ def tabacco_filtered(tabacco: pd.DataFrame) -> pd.DataFrame:
     '''
     # Removing rows that have the following race
     tabacco = tabacco[(tabacco['Race'] != 'All Races') & (tabacco['Race'] !=
-                                                          'American Indian/Alaska Native')]
+                                                          'American Indian/' +
+                                                          'Alaska Native')]
     # Renaming the data value column to avoid confusion
     tabacco = tabacco.rename(columns={'Data_Value': 'smoker_percent'})
     return tabacco
@@ -24,22 +25,40 @@ def cardio_filtered(cardio_vasc: pd.DataFrame) -> pd.DataFrame:
     '''
     # Choosing the rows that have breakout categories of intrest which is race
     cardio_vasc = cardio_vasc[cardio_vasc['Break_Out_Category'] == 'Race']
-    cardio_vasc = cardio_vasc[((cardio_vasc['Break_Out'] == 'Non-Hispanic Black') |
-                               (cardio_vasc['Break_Out'] == 'Non-Hispanic Asian') |
-                               (cardio_vasc['Break_Out'] == 'Non-Hispanic White') |
-                               (cardio_vasc['Break_Out'] == 'Hispanic'))]
+    cardio_vasc = cardio_vasc[((cardio_vasc['Break_Out'] ==
+                                'Non-Hispanic Black') |
+                               (cardio_vasc['Break_Out'] ==
+                                'Non-Hispanic Asian') |
+                               (cardio_vasc['Break_Out'] ==
+                                'Non-Hispanic White') |
+                               (cardio_vasc['Break_Out'] ==
+                                'Hispanic'))]
     # Choosing the rows that have category of cardiovascular disease
-    cardio_vasc = cardio_vasc[cardio_vasc['Category'] == 'Cardiovascular Diseases']
+    cardio_vasc = cardio_vasc[cardio_vasc['Category'] ==
+                              'Cardiovascular Diseases']
     # Choosing rows that have valid percentages
     cardio_vasc = cardio_vasc[cardio_vasc['Data_Value_Alt'] > 0]
     # Renaming the rows to make it easier for joining
-    cardio_vasc['Break_Out'] = cardio_vasc['Break_Out'].replace(['Non-Hispanic Black'], 'African American')
-    cardio_vasc['Break_Out'] = cardio_vasc['Break_Out'].replace(['Non-Hispanic Asian'], 'Asian/Pacific Islander')
-    cardio_vasc['Break_Out'] = cardio_vasc['Break_Out'].replace(['Non-Hispanic White'], 'White')
+    cardio_vasc['Break_Out'] = cardio_vasc['Break_Out'].replace(
+                                                                ['Non-' +
+                                                                 'Hispanic' +
+                                                                 ' Black'],
+                                                                'African' +
+                                                                ' American')
+    cardio_vasc['Break_Out'] = cardio_vasc['Break_Out'].replace(['Non-'
+                                                                 'Hispanic' +
+                                                                 ' Asian'],
+                                                                'Asian/' +
+                                                                'Pacific' +
+                                                                ' Islander')
+    cardio_vasc['Break_Out'] = cardio_vasc['Break_Out'].replace(['Non-' +
+                                                                 'Hispanic' +
+                                                                 ' White'],
+                                                                'White')
     return cardio_vasc
 
 
-def join_cardio_tabacco(tabacco: pd.DataFrame, 
+def join_cardio_tabacco(tabacco: pd.DataFrame,
                         cardio_vasc: pd.DataFrame) -> pd.DataFrame:
     '''
     This function returns the joined dataframe
@@ -64,9 +83,8 @@ def final_table(combined_data: pd.DataFrame) -> pd.DataFrame:
     results_by_race = pd.DataFrame(race_smoke).join(race_cardio)
     # Reseting index so that Race is a column
     results_by_race = results_by_race.reset_index()
-    results_by_race = results_by_race.rename(columns=
-                                             {'Data_Value_Alt':
-                                              'cardiovascular_disease'})
+    results_by_race = results_by_race.rename(columns={'Data_Value_Alt':
+                                             'cardiovascular_disease'})
     return results_by_race
 
 
@@ -103,8 +121,10 @@ def question_3_graph(results_by_race: pd.DataFrame) -> None:
 def main():
     tabacco = cd.tabacco_clean('https://raw.githubusercontent.com/DevinaT'
                                '/CSE163/main/Tobacco.csv')
-    cardio_vasc = cd.cardiovascular_cleaned('https://raw.githubusercontent.com/'
-                                            'DevinaT/CSE163/main/Cardiovascular.csv')
+    cardio_vasc = cd.cardiovascular_cleaned('https://raw.githubusercontent'
+                                            '.com/'
+                                            'DevinaT/CSE163/main/'
+                                            'Cardiovascular.csv')
 
     c_filtered = cardio_filtered(cardio_vasc)
     t_filtered = tabacco_filtered(tabacco)
