@@ -56,8 +56,8 @@ def q1_filter_obesity(obesity: pd.DataFrame) -> pd.DataFrame:
 
     # create an middle adult df to combine the two middle adult age ranges
     middle_adult_df = obesity.loc[is_obese & middle_adult]
-    middle_adult_grouped = middle_adult_df.groupby(["GeoLocation",
-                                                    "Year"])["Data_value"].mean()
+    middle_adult_grouped = middle_adult_df.groupby(
+        ["GeoLocation", "Year"])["Data_value"].mean()
     middle_adult_grouped = middle_adult_grouped.reset_index()
     middle_adult_grouped["Break_Out"] = ["45 to 64 Years"] * \
         len(early_adult_grouped)
