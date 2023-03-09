@@ -19,11 +19,12 @@ test_t_filtered_result = ('https://raw.githubusercontent.com/DevinaT/'
                           'CSE163/main/TEST_T_FILTER_RESULT.csv')
 test_c_cleaned = pd.read_csv('https://raw.githubusercontent.com/DevinaT/'
                              'CSE163/main/cardiovascular_test_cleaned.csv')
-top_ten_list = [['OK', 'UT', 'FL', 'WY', 'IL', 'WI', 'ND', 'IA', 'ID', 'VT']]  # type for this??
+top_ten_list = [['OK', 'UT', 'FL', 'WY', 'IL', 'WI', 'ND', 'IA', 'ID', 'VT']]
 format_cardiovasc_method = pd.read_csv('https://raw.githubusercontent.com/DevinaT'
                                        '/CSE163/main/format_cardio_vasc.csv')
 format_obesity_method = pd.read_csv('https://raw.githubusercontent.com/DevinaT/'
-                                    'CSE163/main/format_obesity.csv', dtype={'Year': "int64", 'Average Obesity Percentage Rate': 'float64'})
+                                    'CSE163/main/format_obesity.csv', 
+                                    dtype={'Year': "int64", 'Average Obesity Percentage Rate': 'float64'})
 test_cardio_filtered_result = ('https://raw.githubusercontent.com/DevinaT/'
                                'CSE163/main/test_cardio_filtered2.csv')
 test_c_file = ('https://raw.githubusercontent.com/DevinaT/CSE163/main'
@@ -90,7 +91,7 @@ def test_q1_filter_obesity(test_file: str, result_file: str) -> None:
     print("test_q1_filter_obesity passed!")
 
 
-def test_cardiovascular_clean(result_file: str) -> None:
+def test_cardiovascular_clean(test_file: str, result_file: str) -> None:
     """
     This function takes in a test data set and a cleaned verison of the
     test dataset and sees if they are equal to each other after the
@@ -99,7 +100,7 @@ def test_cardiovascular_clean(result_file: str) -> None:
     the same. If not the files will not be equal even if the content
     inside of them are equal.
     """
-    clean_cardio = cd.cardiovascular_cleaned('https://raw.githubusercontent.com/DevinaT/CSE163/main/cardiovascular_test.csv')
+    clean_cardio = cd.cardiovascular_cleaned(test_file)
     # drop the indexes
     clean_cardio = clean_cardio.reset_index(drop=True)
 
@@ -159,7 +160,10 @@ def main():
     test_t_df = test_tabcacco_filtered(test_tab,
                                        pd.read_csv(test_t_filtered_result,
                                                    dtype={'YEAR': "string"}))
-    test_file = test_cardiovascular_clean(test_c_cleaned)
+    test_file = test_cardiovascular_clean('https://raw.githubusercontent.com/'
+                                          'DevinaT/CSE163/main/'
+                                          'cardiovascular_test.csv',
+                                          test_c_cleaned)
     test_top_ten_list()
     test_format_cardiovasc(test_c_cleaned)
     test_format_obesity(TEST_OBESITY_RESULT)

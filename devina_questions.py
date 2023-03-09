@@ -90,12 +90,24 @@ def main():
     fig = px.line(obesity_df, x='Year',
                   y='Average Obesity Percentage Rate',
                   color='Locationabbr', markers=True)
+    fig.update_layout(
+        title="Average Obesity Rate Trends Over Time for States of Highest Cardiovascular Risk",
+        xaxis_title="Year",
+        yaxis_title="Percentage (%)",
+        legend_title="State Abbreviation"
+    )
     fig.show()
 
     # this is for cardiovascular
     fig = px.line(cardio_vasco, x='Year',
                   y='Average Cardiovascular Disease Percentage Rate',
                   color='LocationAbbr', markers=True)
+    fig.update_layout(
+        title="Average Cardiovascular Rate Trends Over Time for States at Highest Risk",
+        xaxis_title="Year",
+        yaxis_title="Percentage (%)",
+        legend_title="State Abbreviation"
+    )
     fig.show()
 
 
