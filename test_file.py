@@ -1,3 +1,10 @@
+'''
+Claire Lai, Devina Tavathia, Niyat Efrem
+TA Mentor Paolo Pan
+
+This module contains all of out test functions.
+'''
+
 import cleanedData as cd
 import pandas as pd
 from projects_utils import assert_equals

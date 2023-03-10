@@ -1,3 +1,11 @@
+'''
+Claire Lai
+TA mentor Paolo Pan
+
+This module contains the functions to answer research question
+1. It uses the tabacco and obesity datasets.
+'''
+
 import cleanedData as cd
 import pandas as pd
 import plotly.graph_objects as go

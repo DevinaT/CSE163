@@ -1,7 +1,7 @@
 """
 Niyat Efrem, Claire Lai, Devina Tavahia
-TA Mentor: Palo Pan
-This file contains the functions needed to clean all three datasets
+TA Mentor: Paolo Pan
+This file contains the functions needed to clean all three datasets.
 """
 import pandas as pd
 

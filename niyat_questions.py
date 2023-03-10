@@ -1,3 +1,12 @@
+'''
+Niyat Efrem
+TA Mentor Paolo Pan
+
+This module contains the functions needed to
+answer research question 3, using the tabacco
+and cardiovascular datasets.
+'''
+
 import cleanedData as cd
 import pandas as pd
 import plotly.graph_objects as go

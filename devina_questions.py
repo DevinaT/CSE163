@@ -1,3 +1,12 @@
+'''
+Devina Tavathia
+TA Mentor Paolo Pan
+
+This module contains the functions needed to answer
+reserach question 2, using the cardiovascular and
+obesity datasets.
+'''
+
 import cleanedData as cd
 import plotly.express as px
 
