@@ -78,8 +78,11 @@ def format_obesity(obesity, ten_list):
 
 def main():
     # load the data
-    cardio_vasc = cd.cardiovascular_cleaned('https://raw.githubusercontent.com/DevinaT/CSE163/main/Cardiovascular.csv')
-    obesity = cd.obesity_cleaned('https://raw.githubusercontent.com/DevinaT/CSE163/main/Obesity.csv')
+    cardio_vasc = cd.cardiovascular_cleaned('https://raw.githubusercontent.com/'
+                                            'DevinaT/CSE163/main/'
+                                            'Cardiovascular.csv')
+    obesity = cd.obesity_cleaned('https://raw.githubusercontent.com/'
+                                 'DevinaT/CSE163/main/Obesity.csv')
     # Call your test functions here!
     top10 = find_top_ten(cardio_vasc)
     cardio_vasco = format_cardiovasc(cardio_vasc, top10)
@@ -91,7 +94,8 @@ def main():
                   y='Average Obesity Percentage Rate',
                   color='Locationabbr', markers=True)
     fig.update_layout(
-        title="Average Obesity Rate Trends Over Time for States of Highest Cardiovascular Risk",
+        title="Average Obesity Rate Trends Over Time for States of " +
+              "Highest Cardiovascular Risk",
         xaxis_title="Year",
         yaxis_title="Percentage (%)",
         legend_title="State Abbreviation"
@@ -103,7 +107,8 @@ def main():
                   y='Average Cardiovascular Disease Percentage Rate',
                   color='LocationAbbr', markers=True)
     fig.update_layout(
-        title="Average Cardiovascular Rate Trends Over Time for States at Highest Risk",
+        title="Average Cardiovascular Rate Trends Over Time for" +
+              "States at Highest Risk",
         xaxis_title="Year",
         yaxis_title="Percentage (%)",
         legend_title="State Abbreviation"

@@ -22,15 +22,14 @@ test_tabacco_result = ('https://raw.githubusercontent.com/DevinaT/'
                        'CSE163/main/TES_tabacco_filtered.csv')
 test_t_filtered_result = ('https://raw.githubusercontent.com/DevinaT/'
                           'CSE163/main/TEST_T_FILTER_RESULT.csv')
-test_c_cleaned = pd.read_csv('https://raw.githubusercontent.com/DevinaT/'
-                             'CSE163/main/cardiovascular_test_cleaned.csv')
+test_c_cleaned = ('https://raw.githubusercontent.com/DevinaT/'
+                  'CSE163/main/cardiovascular_test_cleaned.csv')
 top_ten_list = [['OK', 'UT', 'FL', 'WY', 'IL', 'WI', 'ND', 'IA', 'ID', 'VT']]
 
-format_cardiovasc_method = pd.read_csv('https://raw.githubusercontent.com/DevinaT'
-                                       '/CSE163/main/format_cardio_vasc.csv')
-format_obesity_method = pd.read_csv('https://raw.githubusercontent.com/DevinaT/'
-                                    'CSE163/main/format_obesity.csv',
-                                    dtype={'Year': "int64", 'Average Obesity Percentage Rate': 'float64'})
+format_cardiovasc_method = ('https://raw.githubusercontent.com/DevinaT'
+                            '/CSE163/main/format_cardio_vasc.csv')
+format_obesity_method = ('https://raw.githubusercontent.com/DevinaT/'
+                         'CSE163/main/format_obesity.csv')
 
 test_cardio_filtered_result = ('https://raw.githubusercontent.com/DevinaT/'
                                'CSE163/main/test_cardio_filtered2.csv')
@@ -126,13 +125,13 @@ def test_cardio_filtered(test_file: str, result_file: str) -> None:
 
 
 def test_top_ten_list() -> None:
-    top_ten = d.find_top_ten(test_c_cleaned)
+    top_ten = d.find_top_ten(pd.read_csv(test_c_cleaned))
     assert_equals(top_ten_list, top_ten)
     print("top ten passed!")
 
 
 def test_format_cardiovasc(test_file: str) -> None:
-    assert_equals(format_cardiovasc_method, d.format_cardiovasc(test_file,
+    assert_equals(pd.read_csv(format_cardiovasc_method), d.format_cardiovasc(test_file,
                                                                 top_ten_list))
     print("format_cardiovasc passed!")
 
@@ -151,7 +150,10 @@ def test_join_cardio_tabacco(test_t_file: str, test_c_file: str,
 
 def test_format_obesity(test_file: str) -> None:
     recieved = d.format_obesity(test_file, top_ten_list)
-    np.array_equal(recieved.values, format_obesity_method.values)
+    np.array_equal(recieved.values, pd.read_csv(format_obesity_method,
+                                                dtype={'Year': "int64",
+                                                       'Average Obesity Percentage Rate':
+                                                       'float64'}).values)
     print("format_obesity passed!")
 
 
@@ -172,11 +174,11 @@ def main():
     test_file = test_cardiovascular_clean('https://raw.githubusercontent.com/'
                                           'DevinaT/CSE163/main/'
                                           'cardiovascular_test.csv',
-                                          test_c_cleaned)
+                                          pd.read_csv(test_c_cleaned))
 
     test_top_ten_list()
 
-    test_format_cardiovasc(test_c_cleaned)
+    test_format_cardiovasc(pd.read_csv(test_c_cleaned))
 
     test_format_obesity(test_obesity_read)
 
