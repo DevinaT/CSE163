@@ -6,14 +6,14 @@ This module contains the functions needed to answer
 reserach question 2, using the cardiovascular and
 obesity datasets.
 '''
-
+import pandas as pd
 import cleanedData as cd
 import plotly.express as px
 
 topTenList = []
 
 
-def find_top_ten(cardio_vasc):
+def find_top_ten(cardio_vasc: pd.DataFrame) -> list[str]:
     """
     Finds the top 10 states in the dataset
     with the highest risk of cardiovascular disease.
@@ -29,7 +29,7 @@ def find_top_ten(cardio_vasc):
     return topTenList
 
 
-def format_cardiovasc(df, ten_list):
+def format_cardiovasc(df: pd.DataFrame, ten_list: list[str]) -> pd.DataFrame:
     """
     Filters the cardiovasular dataset down to only
     the states contained within the top 10 list made earlier.
@@ -56,7 +56,7 @@ def format_cardiovasc(df, ten_list):
     return df
 
 
-def format_obesity(obesity, ten_list):
+def format_obesity(obesity: pd.DataFrame, ten_list: list[str]) -> pd.DataFrame:
     """
     Filters the obesity dataset down to only
     the states contained within the top 10 list made earlier.
