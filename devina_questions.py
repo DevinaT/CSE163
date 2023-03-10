@@ -78,7 +78,8 @@ def format_obesity(obesity, ten_list):
 
 def main():
     # load the data
-    cardio_vasc = cd.cardiovascular_cleaned('https://raw.githubusercontent.com/'
+    cardio_vasc = cd.cardiovascular_cleaned('https://raw.githubusercontent'
+                                            '.com/'
                                             'DevinaT/CSE163/main/'
                                             'Cardiovascular.csv')
     obesity = cd.obesity_cleaned('https://raw.githubusercontent.com/'
