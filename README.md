@@ -37,4 +37,4 @@ To run tests on our code (prove that it is in fact working) you may run the test
 
 > **Note:** All data is cleaned within cleanedData.py
 
-# Thanks for taking the time reading about my first Data Science Project
+# Thanks and Have Fun!
