@@ -46,7 +46,8 @@ TEST_CT_JOIN_RESULT = ('https://raw.githubusercontent.com/DevinaT'
                        '/CSE163/main/%20FINAL_TEST_JOIN_DF.csv')
 
 
-def test_tabacco_clean(test_file: str, result_file: str) -> None:
+def test_tabacco_clean(test_file: str,
+                       result_file: pd.DataFrame) -> pd.DataFrame:
     '''
     This function takes in a test data set anf returns a cleaned version.
     This is used to test the tabacco_clean method in the CleanedData file.
@@ -59,7 +60,8 @@ def test_tabacco_clean(test_file: str, result_file: str) -> None:
     return filtered_test_df
 
 
-def test_tabcacco_filtered(test_file: str, result_file: str) -> None:
+def test_tabcacco_filtered(test_file: pd.DataFrame,
+                           result_file: pd.DataFrame) -> pd.DataFrame:
     '''
     This function tests the tabacco_filtered method in
     the niyats_questions moduel.
@@ -72,7 +74,7 @@ def test_tabcacco_filtered(test_file: str, result_file: str) -> None:
     return filtered_df
 
 
-def test_obesity_clean(test_file: str, result_file: str) -> None:
+def test_obesity_clean(test_file: str, result_file: pd.DataFrame) -> None:
     """
     This function takes in a test data set and a cleaned verison of the
     test dataset and sees if they are equal to each other after the
@@ -90,7 +92,8 @@ def test_obesity_clean(test_file: str, result_file: str) -> None:
     print("test_obesity_clean passed!")
 
 
-def test_q1_filter_obesity(test_file: str, result_file: str) -> None:
+def test_q1_filter_obesity(test_file: pd.DataFrame,
+                           result_file: pd.DataFrame) -> None:
     """
     This function takes in a test data set and a cleaned version of the
     dataset and sees if they are equal after the function
@@ -104,7 +107,8 @@ def test_q1_filter_obesity(test_file: str, result_file: str) -> None:
     print("test_q1_filter_obesity passed!")
 
 
-def test_cardiovascular_clean(test_file: str, result_file: str) -> None:
+def test_cardiovascular_clean(test_file: str,
+                              result_file: pd.DataFrame) -> pd.DataFrame:
     """
     This function takes in a test data set and a cleaned verison of the
     test dataset and sees if they are equal to each other after the
@@ -123,7 +127,8 @@ def test_cardiovascular_clean(test_file: str, result_file: str) -> None:
     return clean_cardio
 
 
-def test_cardio_filtered(test_file: str, result_file: str) -> None:
+def test_cardio_filtered(test_file: pd.DataFrame,
+                         result_file: pd.DataFrame) -> None:
     filtered_df = n.cardio_filtered(test_file)
     assert_frame_equal(filtered_df.reset_index(drop=True),
                        result_file.reset_index(drop=True))
@@ -137,15 +142,16 @@ def test_top_ten_list() -> None:
     print("top ten passed!")
 
 
-def test_format_cardiovasc(test_file: str) -> None:
+def test_format_cardiovasc(test_file: pd.DataFrame) -> None:
     assert_equals(pd.read_csv(FORMAT_CARDIOVASC_METHOD),
                   d.format_cardiovasc(test_file,
                                       TOP_TEN_LIST))
     print("format_cardiovasc passed!")
 
 
-def test_join_cardio_tabacco(test_t_file: str, test_c_file: str,
-                             result_file: str) -> None:
+def test_join_cardio_tabacco(test_t_file: pd.DataFrame,
+                             test_c_file: pd.DataFrame,
+                             result_file: pd.DataFrame) -> None:
     '''
     This tests join_cardio_tabacco method in the niyat's_question module.
     '''
@@ -156,7 +162,7 @@ def test_join_cardio_tabacco(test_t_file: str, test_c_file: str,
     print('join_cardio_tabacco passed!')
 
 
-def test_format_obesity(test_file: str) -> None:
+def test_format_obesity(test_file: pd.DataFrame) -> None:
     recieved = d.format_obesity(test_file, TOP_TEN_LIST)
     np.array_equal(recieved.values, pd.read_csv(FORMAT_OBESITY_METHOD,
                                                 dtype={'Year': "int64",
